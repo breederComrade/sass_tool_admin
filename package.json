@@ -1,0 +1,20 @@
+{
+  "name": "sassToolAdmin",
+  "version": "1.0.0",
+  "description": "reat admin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/breederComrade/sassToolAdmin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/breederComrade/sassToolAdmin/issues"
+  },
+  "homepage": "https://github.com/breederComrade/sassToolAdmin#readme"
+}
