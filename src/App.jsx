@@ -5,14 +5,10 @@ import Test from './components/Test.jsx'
 
 class App extends Component {
   render() {
-    
-    let obj = {fontSize:'16px',color:"red"}
     return (
-
-      <Test />)
-
-   
-     
+      <Test />
+      
+      )  
   }
 }
 
