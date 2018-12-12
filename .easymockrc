@@ -1,0 +1,11 @@
+    
+{
+  "output": "api",
+  "template": "axios",
+  "projects": [
+    {
+      "id": "5c0f1a3fab670b292a8edab4",
+      "name": "sass_admin"
+    }
+  ]
+}
