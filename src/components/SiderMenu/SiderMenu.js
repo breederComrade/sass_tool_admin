@@ -13,86 +13,88 @@ const { Sider } = Layout;
  * @memberof SiderMenu
  */
 const getDefaultCollapsedSubMenus = props => {
-  const {
-    location: { pathname },
-    flatMenuKeys,
-  } = props;
-  return urlToList(pathname)
-    .map(item => getMenuMatches(flatMenuKeys, item)[0])
-    .filter(item => item);
+	console.log('props', props);
+
+	const {
+		location: { pathname },
+		flatMenuKeys
+	} = props;
+	return urlToList(pathname)
+		.map(item => getMenuMatches(flatMenuKeys, item)[0])
+		.filter(item => item);
 };
 
 export default class SiderMenu extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      openKeys: getDefaultCollapsedSubMenus(props),
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			openKeys: getDefaultCollapsedSubMenus(props)
+		};
+	}
 
-  static getDerivedStateFromProps(props, state) {
-    const { pathname } = state;
-    if (props.location.pathname !== pathname) {
-      return {
-        pathname: props.location.pathname,
-        openKeys: getDefaultCollapsedSubMenus(props),
-      };
-    }
-    return null;
-  }
+	static getDerivedStateFromProps(props, state) {
+		const { pathname } = state;
+		if (props.location.pathname !== pathname) {
+			return {
+				pathname: props.location.pathname,
+				openKeys: getDefaultCollapsedSubMenus(props)
+			};
+		}
+		return null;
+	}
 
-  isMainMenu = key => {
-    const { menuData } = this.props;
-    return menuData.some(item => {
-      if (key) {
-        return item.key === key || item.path === key;
-      }
-      return false;
-    });
-  };
+	isMainMenu = key => {
+		const { menuData } = this.props;
+		return menuData.some(item => {
+			if (key) {
+				return item.key === key || item.path === key;
+			}
+			return false;
+		});
+	};
 
-  handleOpenChange = openKeys => {
-    const moreThanOne = openKeys.filter(openKey => this.isMainMenu(openKey)).length > 1;
-    this.setState({
-      openKeys: moreThanOne ? [openKeys.pop()] : [...openKeys],
-    });
-  };
+	handleOpenChange = openKeys => {
+		const moreThanOne = openKeys.filter(openKey => this.isMainMenu(openKey)).length > 1;
+		this.setState({
+			openKeys: moreThanOne ? [openKeys.pop()] : [...openKeys]
+		});
+	};
 
-  render() {
-    const { logo, collapsed, onCollapse, fixSiderbar, theme } = this.props;
-    const { openKeys } = this.state;
-    const defaultProps = collapsed ? {} : { openKeys };
+	render() {
+		const { logo, collapsed, onCollapse, fixSiderbar, theme } = this.props;
+		const { openKeys } = this.state;
+		const defaultProps = collapsed ? {} : { openKeys };
 
-    const siderClassName = classNames(styles.sider, {
-      [styles.fixSiderbar]: fixSiderbar,
-      [styles.light]: theme === 'light',
-    });
+		const siderClassName = classNames(styles.sider, {
+			[styles.fixSiderbar]: fixSiderbar,
+			[styles.light]: theme === 'light'
+		});
 
-    return (
-      <Sider
-        trigger={null}
-        collapsible
-        collapsed={collapsed}
-        breakpoint="lg"
-        onCollapse={onCollapse}
-        width={256}
-        theme={theme}
-        className={siderClassName}
-      >
-        <div className={styles.logo} id="logo">
-          <Link to="/">
-            <img src={logo} alt="logo" />
-            <h1>Ant Design Pro</h1>
-          </Link>
-        </div>
-        <BaseMenu
-          {...this.props}
-          mode="inline"
-          handleOpenChange={this.handleOpenChange}
-          style={{ padding: '16px 0', width: '100%' }}
-          {...defaultProps}
-        />
-      </Sider>
-    );
-  }
+		return (
+			<Sider
+				trigger={null}
+				collapsible
+				collapsed={collapsed}
+				breakpoint="lg"
+				onCollapse={onCollapse}
+				width={256}
+				theme={theme}
+				className={siderClassName}
+			>
+				<div className={styles.logo} id="logo">
+					<Link to="/">
+						<img src={logo} alt="logo" style={{ height: '50px' }} />
+						<h1>Hooli!</h1>
+					</Link>
+				</div>
+				<BaseMenu
+					{...this.props}
+					mode="inline"
+					handleOpenChange={this.handleOpenChange}
+					style={{ padding: '16px 0', width: '100%' }}
+					{...defaultProps}
+				/>
+			</Sider>
+		);
+	}
 }
