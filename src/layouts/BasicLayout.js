@@ -233,6 +233,7 @@ class BasicLayout extends React.PureComponent {
 		const routerConfig = this.matchParamsPath(pathname);
 		const layout = (
 			<Layout>
+				{/* 菜单栏 */}
 				{isTop && !isMobile ? null : (
 					<SiderMenu
 						logo={logo}
@@ -244,6 +245,7 @@ class BasicLayout extends React.PureComponent {
 						{...this.props}
 					/>
 				)}
+				{/* 导航栏 */}
 				<Layout
 					style={{
 						...this.getLayoutStyle(),

@@ -18,34 +18,50 @@ export default [
 		authority: ['admin', 'user'],
 		routes: [
 			// dashboard
-			{ path: '/', redirect: '/dashboard/analysis' },
+			// { path: '/', redirect: '/dashboard/analysis' },
 			{
 				path: '/dashboard',
 				name: 'dashboard',
 				icon: 'dashboard',
-				routes: [
-					{
-						path: '/dashboard/analysis',
-						name: 'analysis',
-						component: './Dashboard/Analysis'
-					},
-					{
-						path: '/dashboard/monitor',
-						name: 'monitor',
-						component: './Dashboard/Monitor'
-					},
-					{
-						path: '/dashboard/workplace',
-						name: 'workplace',
-						component: './Dashboard/Workplace'
-					}
-				]
+				component: './Dashboard/Analysis'
+				// routes: [
+				// 	{
+				// 		path: '/dashboard/analysis',
+				// 		name: 'analysis',
+				// 		component: './Dashboard/Analysis'
+				// 	},
+				// 	{
+				// 		path: '/dashboard/monitor',
+				// 		name: 'monitor',
+				// 		component: './Dashboard/Monitor'
+				// 	},
+				// 	{
+				// 		path: '/dashboard/workplace',
+				// 		name: 'workplace',
+				// 		component: './Dashboard/Workplace'
+				// 	}
+				// ]
 			},
 			{
 				path: '/sale',
 				name: 'sale',
 				icon: 'copy',
 				routes: [
+					{
+						path: '/sale/analysis',
+						name: 'analysis',
+						component: './Dashboard/Analysis'
+					},
+					{
+						path: '/sale/analysis',
+						name: 'analysis',
+						component: './Dashboard/Analysis'
+					},
+					{
+						path: '/sale/analysis',
+						name: 'analysis',
+						component: './Dashboard/Analysis'
+					},
 					{
 						path: '/sale/analysis',
 						name: 'analysis',
